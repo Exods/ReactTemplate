@@ -1,0 +1,12 @@
+ul{
+    list-style: none;
+    padding: 0 20px 5px;
+}
+ul a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.menu{
+    background: grey;
+
+}
