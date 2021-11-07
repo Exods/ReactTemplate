@@ -1,14 +1,14 @@
 import './App.css';
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
       <div>
         <Header />
+        <Footer />
       </div>
   );
 }
-
 export default App;
