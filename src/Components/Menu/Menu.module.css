@@ -2,10 +2,15 @@ ul{
     list-style: none;
     padding: 0 20px 5px;
 }
-ul a{
+.menuItem{
     cursor: pointer;
     text-decoration: none;
+    color: white;
 }
+ul a.active{
+    color: black;
+}
+
 .menu{
     background: grey;
 

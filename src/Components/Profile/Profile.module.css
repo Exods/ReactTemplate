@@ -1,0 +1,10 @@
+.wrap{
+
+    width: 100%;
+    min-height: 500px;
+    color: black;
+}
+.wrapContent{
+    display: flex;
+    align-items: flex-end;
+}

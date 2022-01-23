@@ -1,0 +1,27 @@
+.wrap{
+    display: flex;
+}
+.items{
+
+}
+.dialogs ul{
+    color: black;
+    border-right:1px solid black;
+}
+.NameItem{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.messageItems{
+    color: black;
+}
+.item{
+    border: 1px solid;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.Input{
+    padding: 5px;
+}
