@@ -6,13 +6,14 @@ import { Route} from "react-router-dom";
 import News from "../News/News";
 
 export default class Content extends Component {
+
     render() {
+        let dialogList =this.props.message;
         return (
                 <div className={classes.wrapper}>
-                        {/*<img src="https://klike.net/uploads/posts/2019-05/1556707966_3.jpg" alt=""/>*/}
-                        <Route path="/message" component={Dialogs}/>
-                        <Route path="/profile" component={Profile}/>
-                        <Route path="/news" component={News}/>
+                    <Route path="/message" render={()=><Dialogs  arrDialogs = {dialogList}/>}/>
+                    <Route path="/profile" render={()=><Profile dataProfile={this.props.dataProfile}/>}/>
+                    <Route path="/news" rrender={()=><News/>}/>
                 </div>
         )
     }

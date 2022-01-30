@@ -3,6 +3,7 @@ import classes from './Profile.module.css'
 
 
 export default class Profile extends Component {
+
     render() {
         return (
             <>
@@ -15,9 +16,9 @@ export default class Profile extends Component {
                             <li>Age</li>
                         </ul>
                         <ul>
-                            <li>Piter</li>
-                            <li>Piter</li>
-                            <li>18</li>
+                            <li >{this.props.dataProfile.name}</li>
+                            <li >{this.props.dataProfile.lastName}</li>
+                            <li >{this.props.dataProfile.age}</li>
                         </ul>
                     </div>
                 </div>

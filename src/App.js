@@ -7,14 +7,15 @@ import './App.css'
 import {BrowserRouter} from "react-router-dom";
 import Menu from "./Components/Menu/Menu";
 
-function App() {
+function App(props) {
+    let dialogList =props.contentObj
     return (
         <BrowserRouter>
             <div className="wrap">
                 <Header/>
                 <div className="content_wrap">
                     <Menu/>
-                    <Content/>
+                    <Content dataProfile={props.dataProfile} message={dialogList}/>
                 </div>
                 <Footer/>
             </div>
