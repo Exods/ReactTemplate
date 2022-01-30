@@ -6,16 +6,18 @@ import Content from "./Components/Content/Content";
 import './App.css'
 import {BrowserRouter} from "react-router-dom";
 import Menu from "./Components/Menu/Menu";
+import {changeMessage} from "./redux/state";
 
 function App(props) {
-    let dialogList =props.contentObj
+
     return (
-        <BrowserRouter>
+
+    <BrowserRouter>
             <div className="wrap">
                 <Header/>
                 <div className="content_wrap">
                     <Menu/>
-                    <Content dataProfile={props.dataProfile} message={dialogList}/>
+                    <Content changeMessage={props.changeMessage} messageClean={props.appstate.messageClean} addMessage={props.addMessage} contentObj={props.appstate.dialogList} dataProfile={props.appstate.dataProfile} message={props.appstate.message}/>
                 </div>
                 <Footer/>
             </div>

@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
+import {changeMessage} from "../../redux/state";
 
 const DialogElements = (props) => {
 
     let items =
-        props.posts.map(function (el,key) {
-            return  <Dialog key={key}  name={el.name} id={el.id}/>
+        props.posts.map(function (el, key) {
+            return <Dialog key={key} name={el.name} id={el.id}/>
         })
+
 
     return (
         <>
@@ -25,15 +27,10 @@ const Dialog = (props) => {
     )
 }
 const Message = (props) => {
-    let messagse= [
-        "Hisdf",
-        "ddYo",
-        "Ledsfsdds",
-    ]
     return (
         <>
-            {messagse.map(function (message,key) {
-                    return  <li key={key} className={classes.item}>{message}</li>
+            {props.message.map(function (message, key) {
+                return <li key={key} className={classes.item}>{message}</li>
             })}
         </>
     );
@@ -41,10 +38,20 @@ const Message = (props) => {
 
 
 export default class Dialogs extends Component {
-
     render() {
-        let dialogList = this.props.arrDialogs;
 
+        let refl = React.createRef();
+        let addMessage = () => {
+            this.props.addMessage(refl.current.value);
+            this.props.changeMessage('');
+
+        }
+        let changeInput = () => {
+            let text = refl.current.value
+            this.props.changeMessage(text);
+
+        }
+        let dialogList = this.props.arrDialogs;
         return (
             <>
                 <div className={classes.wrap}>
@@ -57,11 +64,11 @@ export default class Dialogs extends Component {
                     <div className={classes.messageItems}>
                         <ul>
                             <h3>Message</h3>
-                            <Message />
+                            <Message message={this.props.message}/>
                         </ul>
                         <div className={classes.Input}>
-                            <input type="text"/>
-                            <input type="submit"/>
+                            <input onChange={changeInput} ref={refl} type="text" value={this.props.messageClean}/>
+                            <input onClick={addMessage} type="submit"/>
                         </div>
                     </div>
                 </div>
