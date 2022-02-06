@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
+import {add_message,change_message} from "../../redux/state";
 
-
+/*
 const add_message= (refl)=>{
     return {
         type:'addMessage',
@@ -15,7 +16,7 @@ const change_message = (text)=>{
         message: text
     }
 }
-
+*/
 const DialogElements = (props) => {
 
     let items =

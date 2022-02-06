@@ -86,5 +86,17 @@ let store ={
     }
 }
 
+export const add_message= (refl)=>{
+    return {
+        type:'addMessage',
+        message:refl.current.value
+    }
+}
+export const change_message = (text)=>{
+    return {
+        type:'changeMessage',
+        message: text
+    }
+}
 window.store = store;
 export default store;
