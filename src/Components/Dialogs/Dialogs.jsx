@@ -2,6 +2,20 @@ import React, {Component} from 'react';
 import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
+
+const add_message= (refl)=>{
+    return {
+        type:'addMessage',
+        message:refl.current.value
+    }
+}
+const change_message = (text)=>{
+    return {
+        type:'changeMessage',
+        message: text
+    }
+}
+
 const DialogElements = (props) => {
 
     let items =
@@ -46,11 +60,11 @@ export default class Dialogs extends Component {
             }
             // this.props.addMessage(refl.current.value);
             // this.props.changeMessage('');
-            let addMessageData = {
-                type:'addMessage',
-                message:refl.current.value
-            };
-            this.props.dispatch(addMessageData)
+            // let addMessageData = {
+            //     type:'addMessage',
+            //     message:refl.current.value
+            // };
+            this.props.dispatch(add_message(refl))
 
 
 
@@ -58,11 +72,11 @@ export default class Dialogs extends Component {
         let changeInput = () => {
             let text = refl.current.value
             // this.props.changeMessage(text);
-            let changeMessageData = {
-                type:'changeMessage',
-                message: text
-            };
-            this.props.dispatch(changeMessageData)
+            // let changeMessageData = {
+            //     type:'changeMessage',
+            //     message: text
+            // };
+            this.props.dispatch(change_message(text))
 
         }
         let dialogList = this.props.arrDialogs;

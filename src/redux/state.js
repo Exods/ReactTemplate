@@ -1,3 +1,7 @@
+const ADD_MESSAGE = 'addMessage';
+const CHANGE_MESSAGE = 'changeMessage';
+const CLEAN_MESSAGE = 'cleanMessage';
+
 let store ={
     _state : {
         messageClean:' ',
@@ -62,17 +66,17 @@ let store ={
     },
     dispatch(action){ // {type:'ADD-POST'}
        switch (action.type){
-           case 'addMessage':
+           case ADD_MESSAGE:
                let newMessage = action.message;
                this._state.message.push(newMessage);
                this._state.messageClean = '';
                this._callSubsriber(this._state);
                break;
-           case 'changeMessage':
+           case CHANGE_MESSAGE:
                this._state.messageClean = action.message;
                this._callSubsriber(this._state);
                break;
-           case 'cleanMessage':
+           case CLEAN_MESSAGE:
                this._state.messageClean = action.message;
                this._callSubsriber(this._state);
                break;
