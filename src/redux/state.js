@@ -1,4 +1,6 @@
-import {renderEntireTree} from "../render";
+let renderEntireTree = ()=>{
+    console.log('State change!!!')
+}
 
 
 let state = {
@@ -44,14 +46,20 @@ let state = {
         },
     ]
 }
+
 export let addMessage = (message)=>{
     let newMessage =message;
     state.message.push(newMessage);
     renderEntireTree(state);
 }
+
 export let changeMessage = (message)=>{
     state.messageClean = message;
     renderEntireTree(state);
+}
+
+export const subscribe = (observer)=>{
+    renderEntireTree= observer;
 }
 
 export default state;

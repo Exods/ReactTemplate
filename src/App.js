@@ -6,7 +6,7 @@ import Content from "./Components/Content/Content";
 import './App.css'
 import {BrowserRouter} from "react-router-dom";
 import Menu from "./Components/Menu/Menu";
-import {changeMessage} from "./redux/state";
+// import {changeMessage} from "./redux/state";
 
 function App(props) {
 
