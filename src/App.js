@@ -17,7 +17,12 @@ function App(props) {
                 <Header/>
                 <div className="content_wrap">
                     <Menu/>
-                    <Content changeMessage={props.changeMessage} messageClean={props.appstate.messageClean} addMessage={props.addMessage} contentObj={props.appstate.dialogList} dataProfile={props.appstate.dataProfile} message={props.appstate.message}/>
+                    <Content dispatch={props.dispatch}
+                             contentObj={props.appstate.dialogList}
+                             dataProfile={props.appstate.dataProfile}
+                             message={props.appstate.message}
+                             messageClean = {props.appstate.messageClean}
+                    />
                 </div>
                 <Footer/>
             </div>

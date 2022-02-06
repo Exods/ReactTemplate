@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
-import {changeMessage} from "../../redux/state";
 
 const DialogElements = (props) => {
 
@@ -42,13 +41,28 @@ export default class Dialogs extends Component {
 
         let refl = React.createRef();
         let addMessage = () => {
-            this.props.addMessage(refl.current.value);
-            this.props.changeMessage('');
+            if (refl.current.value.length<4){
+                return false;
+            }
+            // this.props.addMessage(refl.current.value);
+            // this.props.changeMessage('');
+            let addMessageData = {
+                type:'addMessage',
+                message:refl.current.value
+            };
+            this.props.dispatch(addMessageData)
+
+
 
         }
         let changeInput = () => {
             let text = refl.current.value
-            this.props.changeMessage(text);
+            // this.props.changeMessage(text);
+            let changeMessageData = {
+                type:'changeMessage',
+                message: text
+            };
+            this.props.dispatch(changeMessageData)
 
         }
         let dialogList = this.props.arrDialogs;
