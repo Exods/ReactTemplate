@@ -1,9 +1,6 @@
+import messageReducer from "./message-reducer";
+import newsReducer from "./news-reducer";
 
-const ADD_MESSAGE = 'addMessage';
-const CHANGE_MESSAGE = 'changeMessage';
-const CLEAN_MESSAGE = 'cleanMessage';
-const CHANGE_NEWS = 'change_news';
-const ADD_NEWS = 'add_news';
 
 let store ={
     _state : {
@@ -88,63 +85,12 @@ let store ={
         this._callSubsriber = observer;
     },
     dispatch(action){ // {type:'ADD-POST'}
-       switch (action.type){
-           case ADD_MESSAGE:
-               let newMessage = action.message;
-               this._state.message.message.push(newMessage);
-               this._state.message.messageClean = '';
-               this._callSubsriber(this._state);
-               break;
-           case CHANGE_MESSAGE:
-               this._state.message.messageClean = action.message;
-               this._callSubsriber(this._state);
-               break;
-           case CLEAN_MESSAGE:
-               this._state.message.messageClean = action.message;
-               this._callSubsriber(this._state);
-               break;
-           case CHANGE_NEWS:
-               this._state.news.newsInputValue = action.newsValue;
-               this._callSubsriber(this._state);
-               break;
-           case ADD_NEWS:
-               this._state.news.newsList.push(action.news);
-               this._state.news.newsInputValue = '';
-               this._callSubsriber(this._state);
-               break;
-           default:
-               break;
-       }
+        this._state.message = messageReducer(this._state.message, action);
+        this._state.news = newsReducer(this._state.news, action);
+        this._callSubsriber(this._state);
     }
 }
 
-export const add_message= (refl)=>{
-    return {
-        type:ADD_MESSAGE,
-        message:refl.current.value
-    }
-}
-export const change_message = (text)=>{
-    return {
-        type:CHANGE_MESSAGE,
-        message: text
-    }
-}
-export const news_change = (refNews)=>{
-    return{
-        type:CHANGE_NEWS,
-        newsInputValue: refNews
-    }
-}
-export const add_news=(refNews)=>{
-    return{
-        type:ADD_NEWS,
-        news: {
-            id:7,message:refNews.current.value
-        }
 
-    }
-
-}
 window.store = store;
 export default store;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
-import {add_message,change_message} from "../../redux/state";
+import {add_message,change_message} from "../../redux/message-reducer";
 
 /*
 const add_message= (refl)=>{

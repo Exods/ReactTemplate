@@ -14,7 +14,6 @@ import App from './App';
         </React.StrictMode>,
         document.getElementById('root')
     );
-    console.log(store.getState());
 }
 renderEntireTree(store.getState());
 

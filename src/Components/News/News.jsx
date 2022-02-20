@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classes from './News.module.css'
-import {add_news, news_change} from "../../redux/state";
+import {add_news, news_change} from "../../redux/news-reducer";
 
 
 const NewsList = (props) => {
