@@ -1,7 +1,19 @@
 const CHANGE_NEWS = 'change_news';
 const ADD_NEWS = 'add_news';
 
-const newsReducer = (state, action) => {
+let initialState ={
+        newsList:[
+            {id:1,message:'news 1'},
+            {id:2,message:'news 2'},
+            {id:3,message:'news 3'},
+            {id:4,message:'news 4'},
+            {id:5,message:'news 5'},
+            {id:6,message:'news 6'},
+        ],
+        newsInputValue:'55'
+    }
+
+const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_NEWS:
             state.newsInputValue = action.newsValue;

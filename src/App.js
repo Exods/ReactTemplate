@@ -9,7 +9,6 @@ import Menu from "./Components/Menu/Menu";
 // import {changeMessage} from "./redux/state";
 
 function App(props) {
-
     return (
 
     <BrowserRouter>
@@ -19,7 +18,7 @@ function App(props) {
                     <Menu/>
                     <Content dispatch={props.dispatch}
                              contentObj={props.appstate.dialogList}
-                             dataProfile={props.appstate.profile.dataProfile}
+                             //dataProfile={props.appstate._state.profile}
                              message={props.appstate.message}
                              messageClean = {props.appstate.message.messageClean}
                              news = {props.appstate.news.newsList}

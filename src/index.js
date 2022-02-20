@@ -1,12 +1,13 @@
 import './index.css';
 import ReactDOM from "react-dom";
 import React from "react";
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import App from './App';
+import reportWebVitals from "./reportWebVitals";
 
 
  let renderEntireTree = ()=>{
-    ReactDOM.render(
+     ReactDOM.render(
         <React.StrictMode>
             <App dispatch={store.dispatch.bind(store)}
                  appstate={store.getState()}
@@ -18,4 +19,4 @@ import App from './App';
 renderEntireTree(store.getState());
 
 store.subscribe(renderEntireTree)
-// reportWebVitals();
+ reportWebVitals();

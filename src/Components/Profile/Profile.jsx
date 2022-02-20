@@ -5,6 +5,14 @@ import classes from './Profile.module.css'
 export default class Profile extends Component {
 
     render() {
+        let profile = {
+            dataProfile: {
+                name: 'Piter',
+                lastName: 'Last name',
+                age: '18'
+            }
+
+        }
         return (
             <>
                 <div className={classes.wrap}>
@@ -16,9 +24,9 @@ export default class Profile extends Component {
                             <li>Age</li>
                         </ul>
                         <ul>
-                            <li >{this.props.dataProfile.name}</li>
-                            <li >{this.props.dataProfile.lastName}</li>
-                            <li >{this.props.dataProfile.age}</li>
+                            <li >{profile.dataProfile.name}</li>
+                            <li >{profile.dataProfile.lastName}</li>
+                            <li >{profile.dataProfile.age}</li>
                         </ul>
                     </div>
                 </div>

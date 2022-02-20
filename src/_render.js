@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
-import {addMessage, changeMessage} from "./redux/state";
+import {addMessage, changeMessage} from "./redux/store";
 
 
 export let renderEntireTree = (state)=>{
