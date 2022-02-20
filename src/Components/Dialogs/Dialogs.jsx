@@ -97,7 +97,7 @@ export default class Dialogs extends Component {
                         </ul>
                         <div className={classes.Input}>
                             <input onChange={changeInput} ref={refl} type="text" value={this.props.messageClean}/>
-                            <input onClick={addMessage} type="submit"/>
+                            <input onClick={addMessage} type="submit" />
                         </div>
                     </div>
                 </div>

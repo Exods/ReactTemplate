@@ -21,7 +21,11 @@ export default class Content extends Component {
                         />}/>
                     <Route path="/profile" render={()=><Profile dataProfile={this.props.dataProfile}
                     />}/>
-                    <Route path="/news" rrender={()=><News/>}/>
+                    <Route path="/news" render={()=><News
+                        news ={this.props.news}
+                        inputValue ={this.props.newsInputValue}
+                        dispatch={this.props.dispatch}
+                    />  }/>
                 </div>
         )
     }

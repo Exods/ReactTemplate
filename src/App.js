@@ -22,6 +22,8 @@ function App(props) {
                              dataProfile={props.appstate.dataProfile}
                              message={props.appstate.message}
                              messageClean = {props.appstate.messageClean}
+                             news = {props.appstate.newsList}
+                             newsInputValue = {props.appstate.newsInputValue}
                     />
                 </div>
                 <Footer/>
