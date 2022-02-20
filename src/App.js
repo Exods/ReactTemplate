@@ -19,11 +19,11 @@ function App(props) {
                     <Menu/>
                     <Content dispatch={props.dispatch}
                              contentObj={props.appstate.dialogList}
-                             dataProfile={props.appstate.dataProfile}
+                             dataProfile={props.appstate.profile.dataProfile}
                              message={props.appstate.message}
-                             messageClean = {props.appstate.messageClean}
-                             news = {props.appstate.newsList}
-                             newsInputValue = {props.appstate.newsInputValue}
+                             messageClean = {props.appstate.message.messageClean}
+                             news = {props.appstate.news.newsList}
+                             newsInputValue = {props.appstate.news.newsInputValue}
                     />
                 </div>
                 <Footer/>

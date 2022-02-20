@@ -7,57 +7,63 @@ const ADD_NEWS = 'add_news';
 
 let store ={
     _state : {
-        messageClean:' ',
-        message: [
-            "Hisdf",
-            "ddYo",
-            "Ledsfsdds",
-        ],
-        dataProfile: {
-            name: 'Piter',
-            lastName: 'Last name',
-            age: '18'
+       message:{
+            messageClean:' ',
+            message: [
+                "Hisdf",
+                "ddYo",
+                "Ledsfsdds",
+            ],
+           dialogList: [
+               {
+                   id: 1, name: 'Sasha',
+
+               },
+               {
+                   id: 2, name: 'Piter',
+
+               },
+               {
+                   id: 3, name: 'Sveta',
+
+               },
+               {
+                   id: 5, name: 'Sam5',
+
+               },
+               {
+                   id: 6, name: 'Sam6',
+
+               },
+               {
+                   id: 7, name: 'Sam7',
+
+               },
+               {
+                   id: 8, name: 'Sam8',
+
+               },
+           ],
         },
-        dialogList: [
-            {
-                id: 1, name: 'Sasha',
+       profile:{
+           dataProfile: {
+               name: 'Piter',
+               lastName: 'Last name',
+               age: '18'
+           },
 
-            },
-            {
-                id: 2, name: 'Piter',
-
-            },
-            {
-                id: 3, name: 'Sveta',
-
-            },
-            {
-                id: 5, name: 'Sam5',
-
-            },
-            {
-                id: 6, name: 'Sam6',
-
-            },
-            {
-                id: 7, name: 'Sam7',
-
-            },
-            {
-                id: 8, name: 'Sam8',
-
-            },
-        ],
-        newsList:[
-            {id:1,message:'news 1'},
-            {id:2,message:'news 2'},
-            {id:3,message:'news 3'},
-            {id:4,message:'news 4'},
-            {id:5,message:'news 5'},
-            {id:6,message:'news 6'},
-        ],
-            newsInputValue:'',
-
+       },
+       news:{
+            newsList:[
+                {id:1,message:'news 1'},
+                {id:2,message:'news 2'},
+                {id:3,message:'news 3'},
+                {id:4,message:'news 4'},
+                {id:5,message:'news 5'},
+                {id:6,message:'news 6'},
+            ],
+            newsInputValue:'55',
+        },
     },
     getState(){
         return this._state;
@@ -66,15 +72,16 @@ let store ={
         console.log('State change!!!')
     },
     addMessage (message) {
-        this._state.message.push(message);
+        this._state.message.message.push(message);
         this._callSubsriber(this._state);
+
     },
     changeMessage (message){
-        this._state.messageClean = message;
+        this._state.message.messageClean = message;
         this._callSubsriber(this._state);
     },
     changeNewsValue (newsValue){
-        this._state.newsInputValue = newsValue;
+        this._state.news.newsInputValue = newsValue;
         this._callSubsriber(this._state);
     },
     subscribe (observer){
@@ -84,25 +91,25 @@ let store ={
        switch (action.type){
            case ADD_MESSAGE:
                let newMessage = action.message;
-               this._state.message.push(newMessage);
-               this._state.messageClean = '';
+               this._state.message.message.push(newMessage);
+               this._state.message.messageClean = '';
                this._callSubsriber(this._state);
                break;
            case CHANGE_MESSAGE:
-               this._state.messageClean = action.message;
+               this._state.message.messageClean = action.message;
                this._callSubsriber(this._state);
                break;
            case CLEAN_MESSAGE:
-               this._state.messageClean = action.message;
+               this._state.message.messageClean = action.message;
                this._callSubsriber(this._state);
                break;
            case CHANGE_NEWS:
-               this._state.newsInputValue = action.newsValue;
+               this._state.news.newsInputValue = action.newsValue;
                this._callSubsriber(this._state);
                break;
            case ADD_NEWS:
-               this._state.newsList.push(action.news);
-               this._state.newsInputValue = '';
+               this._state.news.newsList.push(action.news);
+               this._state.news.newsInputValue = '';
                this._callSubsriber(this._state);
                break;
            default:

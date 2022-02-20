@@ -43,7 +43,8 @@ const Dialog = (props) => {
 const Message = (props) => {
     return (
         <>
-            {props.message.map(function (message, key) {
+            {
+                props.message.map(function (message, key) {
                 return <li key={key} className={classes.item}>{message}</li>
             })}
         </>
@@ -80,7 +81,7 @@ export default class Dialogs extends Component {
             this.props.dispatch(change_message(text))
 
         }
-        let dialogList = this.props.arrDialogs;
+        let dialogList = this.props.message.dialogList;
         return (
             <>
                 <div className={classes.wrap}>
@@ -93,7 +94,7 @@ export default class Dialogs extends Component {
                     <div className={classes.messageItems}>
                         <ul>
                             <h3>Message</h3>
-                            <Message message={this.props.message}/>
+                            <Message message={this.props.message.message}/>
                         </ul>
                         <div className={classes.Input}>
                             <input onChange={changeInput} ref={refl} type="text" value={this.props.messageClean}/>
