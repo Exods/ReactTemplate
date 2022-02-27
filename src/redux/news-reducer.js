@@ -10,7 +10,7 @@ let initialState ={
             {id:5,message:'news 5'},
             {id:6,message:'news 6'},
         ],
-        newsInputValue:'55'
+        newsInputValue:'New'
     }
 
 const newsReducer = (state = initialState, action) => {

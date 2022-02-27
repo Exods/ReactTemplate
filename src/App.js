@@ -19,10 +19,8 @@ function App(props) {
                     <Content dispatch={props.dispatch}
                              contentObj={props.appstate.dialogList}
                              //dataProfile={props.appstate._state.profile}
-                             message={props.appstate.message}
-                             messageClean = {props.appstate.message.messageClean}
-                             news = {props.appstate.news.newsList}
-                             newsInputValue = {props.appstate.news.newsInputValue}
+                             store={props.store}
+
                     />
                 </div>
                 <Footer/>

@@ -11,10 +11,12 @@ import reportWebVitals from "./reportWebVitals";
         <React.StrictMode>
             <App dispatch={store.dispatch.bind(store)}
                  appstate={store.getState()}
+                 store={store}
             />
         </React.StrictMode>,
         document.getElementById('root')
     );
+     window.store = store.getState();
 }
 renderEntireTree(store.getState());
 

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import classes from './Content.module.css'
-import Dialogs from "../Dialogs/Dialogs";
+import DialogsConteiner from "../Dialogs/DialogsConteiner";
 import Profile from "../Profile/Profile";
 import { Route} from "react-router-dom";
-import News from "../News/News";
+import NewsContainer from "../News/NewsConteiner";
 
 export default class Content extends Component {
 
@@ -13,18 +13,15 @@ export default class Content extends Component {
         return (
                 <div className={classes.wrapper}>
                     <Route path="/message" render={()=>
-                        <Dialogs
-                        messageClean={this.props.messageClean}
-                        dispatch={this.props.dispatch}
-                        message={this.props.message}
-
+                        <DialogsConteiner
+                        store={this.props.store}
                         />}/>
                     <Route path="/profile" render={()=><Profile dataProfile={this.props.dataProfile}
                     />}/>
-                    <Route path="/news" render={()=><News
-                        news ={this.props.news}
-                        inputValue ={this.props.newsInputValue}
-                        dispatch={this.props.dispatch}
+                    <Route path="/news" render={()=>
+                        <NewsContainer
+                            store={this.props.store}
+                            dispatch={this.props.dispatch}
                     />  }/>
                 </div>
         )

@@ -3,11 +3,11 @@ const CHANGE_MESSAGE = 'changeMessage';
 const CLEAN_MESSAGE = 'cleanMessage';
 
 let initialState = {
-        messageClean:' ',
+        messageClean:'Mess',
         message: [
-            "Hisdf",
-            "ddYo",
-            "Ledsfsdds",
+            "Привет",
+            "Yo",
+            "Бро",
         ],
         dialogList: [
             {
@@ -42,10 +42,11 @@ let initialState = {
     };
  const messageReducer=(state = initialState,action)=>{
     switch (action.type){
+
         case ADD_MESSAGE:
             let newMessage = action.message;
             state.message.push(newMessage);
-            state.messageClean = '';
+            state.messageClean = ' ';
             break;
         case CHANGE_MESSAGE:
             state.messageClean = action.message;
