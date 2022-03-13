@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
 
 import {add_message,change_message} from "../../redux/message-reducer";
 import Dialogs from "./Dialogs";
-
+import {connect} from "react-redux";
+/*
 export default class DialogsConteiner extends Component {
 
     render() {
@@ -24,3 +24,23 @@ export default class DialogsConteiner extends Component {
         )
     }
 }
+ */
+let mapStateToProps = (state)=>{
+    return{
+        message:state.message
+    }
+}
+let mapDispatchToProps = (dispatch)=>{
+    return {
+        addMessage:(text)=>{
+            dispatch(add_message(text))
+        },
+
+        changeInput:(text)=>{
+            dispatch(change_message(text))
+        },
+    }
+}
+let SuperDialogsConteiner = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
+
+ export default  SuperDialogsConteiner;

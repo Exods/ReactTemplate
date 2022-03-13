@@ -16,10 +16,11 @@ function App(props) {
                 <Header/>
                 <div className="content_wrap">
                     <Menu/>
-                    <Content dispatch={props.dispatch}
-                             contentObj={props.appstate.dialogList}
+                    <Content
+                             // dispatch={props.dispatch}
+                             // contentObj={props.appstate.dialogList}
                              //dataProfile={props.appstate._state.profile}
-                             store={props.store}
+                             // store={props.store}
 
                     />
                 </div>

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
 import {add_news, news_change} from "../../redux/news-reducer";
 import News from "./News";
+import {connect} from "react-redux";
 
-
+/*
 export default class NewsContainer extends Component {
 
     render() {
@@ -22,3 +22,21 @@ export default class NewsContainer extends Component {
         )
     }
 }
+ */
+let mapToStateProps =(state)=>{
+    return{
+        news: state.news
+    }
+}
+let mapDispatchToProps = (dispatch)=>{
+    return{
+        ChangeNewsValue:(refNews)=>{
+            dispatch(news_change(refNews))
+        },
+        addNews:(refNews)=>{
+            dispatch(add_news(refNews))
+        }
+    }
+}
+let NewsConteiner = connect(mapToStateProps,mapDispatchToProps)(News)
+export default NewsConteiner;
