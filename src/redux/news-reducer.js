@@ -2,7 +2,7 @@ const CHANGE_NEWS = 'change_news';
 const ADD_NEWS = 'add_news';
 
 let initialState ={
-        newsList:[
+            newsList:[
             {id:1,message:'news 1'},
             {id:2,message:'news 2'},
             {id:3,message:'news 3'},
@@ -14,14 +14,18 @@ let initialState ={
     }
 
 const newsReducer = (state = initialState, action) => {
+    let stateCopy;
     switch (action.type) {
         case CHANGE_NEWS:
-            state.newsInputValue = action.newsValue;
-            break;
+            stateCopy = {...state}
+            stateCopy.newsInputValue = action.newsValue;
+            return stateCopy;
         case ADD_NEWS:
-            state.newsList.push(action.news);
-            state.newsInputValue = '';
-            break;
+            stateCopy = {...state}
+            stateCopy.newsList = [...state.newsList]
+            stateCopy.newsList.push(action.news);
+            stateCopy.newsInputValue = '';
+            return stateCopy;
         default:
             break;
     }

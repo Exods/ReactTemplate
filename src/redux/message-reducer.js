@@ -41,19 +41,22 @@ let initialState = {
         ],
     };
  const messageReducer=(state = initialState,action)=>{
+     let stateCopy;
     switch (action.type){
-
         case ADD_MESSAGE:
+            stateCopy = {...state}
+            stateCopy.message = [...state.message];
             let newMessage = action.message;
-            state.message.push(newMessage);
-            state.messageClean = ' ';
-            break;
+            stateCopy.message.push(newMessage);
+            stateCopy.messageClean = ' ';
+            return stateCopy;
         case CHANGE_MESSAGE:
-            state.messageClean = action.message;
-            break;
+            stateCopy = {...state}
+            stateCopy.messageClean = action.message;
+            return stateCopy;
         case CLEAN_MESSAGE:
-            state.messageClean = action.message;
-            break;
+            stateCopy.messageClean = action.message;
+            return stateCopy;
         default:
             break;
     }
